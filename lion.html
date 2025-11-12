@@ -1,0 +1,109 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Virtual Pet: Lion</title>
+
+  <body>
+    <center>
+      <h1 id="food">This is Leo the Lion.</h1>
+      <p></p>
+      <img id="petimage" src="assets/happylion.jpg" alt="Cat JPEG" style="width:200px;height:210px;">
+      <p></p>
+      <button id="feedButton" onclick="feed();"><img src="assets/food1.png" height = "50" width = "50"><p></p>Feed</img></button>
+      <button id="petButton" onclick="pet();"><img src="assets/hand.png" height = "50" width = "50"></img><p></p>Pet</button>
+      <button id="ballButton" onclick="ball();"><img src="assets/ball.png" height = "50" width = "50"></img><p></p>Throw Ball</button>
+      <p></p>
+
+      <script>
+        var emotions = ["assets/happylion.jpg", "assets/ghostlion.jpg", "assets/hungrylion.jpg", "assets/sicklion.jpg", "assets/petlion.jpg", "assets/balllion.jpg"];
+        var food = 0;
+        var ghost = 1;
+        var ghost2 = 0;
+        var sick = 0;
+
+        function ball() {
+          if (ghost2 == 1) {
+            document.getElementById('food').innerHTML = "Your ball goes through Leo the ghost.";
+          } else if (food == 1) {
+            document.getElementById('food').innerHTML = "Leo does not want to play catch right now.";
+          } else if (food == 0) {
+            clearTimeout(myHunger);
+            document.getElementById('food').innerHTML = "Leo caught the ball!";
+            document.getElementById("petimage").src = emotions[5];
+            myHunger = setTimeout(hungry, 5000);
+          }
+        }
+
+        function pet() {
+          if (ghost2 == 1) {
+            document.getElementById('food').innerHTML = "Your hand goes through Leo the ghost.";
+          } else if (food == 1) {
+            document.getElementById('food').innerHTML = "Leo does not want to be pet right now.";
+          } else if (food == 0) {
+            clearTimeout(myHunger);
+            document.getElementById('food').innerHTML = "Leo likes the way you are petting him.";
+            document.getElementById("petimage").src = emotions[4];
+            myHunger = setTimeout(hungry, 5000);
+          }
+        }
+
+        function feed2() {
+          document.getElementById('food').innerHTML = "Leo is full on food and is happy.";
+          document.getElementById("petimage").src = emotions[0];
+          food -= 1;
+          ghost = 0;
+          ghost2 = 0;
+          sick = 0;
+          myHunger = setTimeout(hungry, 5000);
+        }
+
+        function feed() {
+          var ghostappear = Math.floor((Math.random() * 5) + 1);
+          if (ghostappear == 3 && ghost == 0) {
+            ghost2 = 1;
+            document.getElementById("petimage").src = emotions[1];
+            document.getElementById('food').innerHTML = "Leo is a ghost. BOOO!";
+            clearTimeout(myHunger);
+            ghost = 1;
+            food = 1;
+            setTimeout(feed2, 5000);
+          } else if (sick == 1) {
+            document.getElementById('food').innerHTML = "Stop overfeeding him!";
+          } else if (ghost2 == 1) {
+            document.getElementById('food').innerHTML = "The food goes straight through Leo the ghost.";
+          } else if (food == 1) {
+            document.getElementById('food').innerHTML = "Leo is full on food and is happy.";
+            document.getElementById("petimage").src = emotions[0];
+            food -= 1;
+            ghost = 0;
+            myHunger = setTimeout(hungry, 5000);
+          } else if (food == 0) {
+            clearTimeout(myHunger);
+            document.getElementById('food').innerHTML = "Leo is sick! Wait a while before feeding him.";
+            document.getElementById("petimage").src = emotions[3];
+            food = 1;
+            ghost = 1;
+            sick = 1;
+            setTimeout(feed2, 5000);
+          }
+        }
+
+        function hungry() {
+          if (food == 0) {
+            document.getElementById('food').innerHTML = "Leo is hungry, you should feed him.";
+            document.getElementById("petimage").src = emotions[2];
+            food = 1;
+            clearTimeout(myHunger);
+          }
+        }
+        window.onload = function() {
+          myHunger = setTimeout(hungry, 5000);
+        }
+      </script>
+    </center>
+    <h3><a href="./documentation.html">Link to Documentation</a></h3>
+  </body>
+</head>
+
+</html>
