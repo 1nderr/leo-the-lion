@@ -6,7 +6,7 @@ A state machine project created in HTML. This was my first project in college.
 
 ## Backstory
 
-Leo the Lion does not have a huge backstory. My last name "Singh" means "Lion". His states are happy/full, sick, hungry, being pet, and ghost. They are pretty basic states except for ghost. Originally I had thought of killing the lion when I didn't feed it for a very long time. However, when my cousin was playing around with the demo I had created, he played with the elements in Google Chrome and changed the lion to a ghost lion. I thought I would be a terrible person if I simply let the lion die, so I added a state where Leo will try to "spook" the user randomly. Leo is an athletic lion, so he has the ability to catch a ball.
+Leo the Lion does not have a huge backstory. My last name means "Lion". His states are happy/full, sick, hungry, being pet, and ghost. They are pretty basic states except for ghost. Originally I had thought of killing the lion when I didn't feed it for a very long time. However, when my cousin was playing around with the demo I had created, he played with the elements in Google Chrome and changed the lion to a ghost lion. I thought I would be a terrible person if I simply let the lion die, so I added a state where Leo will try to "spook" the user randomly. Leo is an athletic lion, so he has the ability to catch a ball.
 
 ## Behavior
 
